@@ -1,5 +1,7 @@
 # 헤드 퍼스트 디자인 패턴
 
+-----
+
 ## 객체지향 기초
 * 추상화
 * 캡슐화
@@ -22,9 +24,10 @@
      분기문으로 짧게 처리하는게 가독성이 더 좋을 수 있다.
      전략 패턴의 핵심은 다양하게 확장할 수 있는 행위를 하나의 추상화로 만든 후, 클래스를 언제든 교체할 수 있게 하는 것이다. 
 
+------
 ### 2. 옵저버 패턴(Observer pattern) - step2
 
-####  &nbsp; 1) 옵져버 패턴 정의
+#### &nbsp; 1) 옵져버 패턴 정의
     
      옵져버 패턴은 주제(subject), 옵져버(observer)의 관계를 이해해야 한다.
      한 대상의 주제(상태)에 대해 변화된 사항들을 옵져버들에게 전달해 준다.
@@ -60,3 +63,34 @@ public interface DisplayElement{
 }
 ```
 
+###     * Push or Pull?
+주제가 전달받는 옵져버들에게 update 메서드를 사용해서 모든 데이터를 보내도록 설정되어 있는데(Push). 옵져버가 
+필요한 데이터들을 선택해서 가져오는 방식도 있다.(Pull) => Getter를 사용
+
+**Pull(주제에서 알림보내기)** : 기존 코드에서는 주제에서 update 메서드에 모든 매개변수를 담아서 호출했었는데. 
+이번에는 비어있는 update()를 호출한다.
+```java
+public void notifyObservers(){
+    for(Observer observer : observers){
+        observer.update()
+        }
+}
+```
+
+**옵져버에서 알림 받기** : 필요한 온도와 습도 값만 pull 받는다.
+```java
+// interface
+public interface Observer{
+    public void update();
+}
+
+// implement
+public void update(){
+    this.temperature = weatherData.getTemperature();
+    this.humidity = wwatherData.getHumidity();
+    display();
+}
+```
+
+-----
+### 3. 데코레이터 패턴(Decorator pattern) - step3
