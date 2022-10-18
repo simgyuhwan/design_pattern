@@ -94,3 +94,4 @@ public void update(){
 
 -----
 ### 3. 데코레이터 패턴(Decorator pattern) - step3
+데코레이터 패턴(Decorator Pattern)으로 **객체에 추가 요소를 동적으로 더할 수 있다.**  
