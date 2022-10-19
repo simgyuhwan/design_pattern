@@ -11,7 +11,7 @@ public abstract class Duck {
     }
 
     public void swim(){
-        System.out.println("모든 오리는 물에 뜹니다. 가짜 오리도 뜹니다.");
+        System.out.println("oh.");
     }
 
     public abstract void display();

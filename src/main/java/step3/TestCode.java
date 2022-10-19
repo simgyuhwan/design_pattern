@@ -1,5 +1,7 @@
 package step3;
 
+import java.io.InputStream;
+
 public class TestCode {
 
     public static void main(String[] args) {
